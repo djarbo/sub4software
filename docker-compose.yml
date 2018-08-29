@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  frontend:
+    build: angular-client
+    ports:
+      - '4200:4200'
+    volumes:
+      - frontend_node_modules:/usr/src/app/node_modules
+      - ./angular-client:/usr/src/app
+  
+  backend:
+    build: express-server
+    ports:
+      - '3000:3000'
+    links:
+        - database
+    volumes:
+      - backend_node_modules:/usr/src/app/node_modules
+      - ./express-server:/usr/src/app
+  
+  database:
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - db-data:/data/db
+
+volumes:
+  frontend_node_modules:
+  backend_node_modules:
+  db-data:
