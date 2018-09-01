@@ -1,12 +1,13 @@
+<!--<router-outlet name="sidebar"></router-outlet>-->
 <div class="nav-side-menu">
-    <div class="brand">Fid<font color="green">oo</font></div>
+    <div class="brand">FiDo</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
   
         <div class="menu-list">
   
             <ul id="menu-content" class="menu-content collapse out">
                 <li>
-                  <a href="#">
+                  <a href="">
                   <i class="fa fa-dashboard fa-lg"></i> Welcome
                   </a>
                 </li>
@@ -27,24 +28,24 @@
                     <li><a href="#">Bootstrap Model</a></li>
                 </ul>
 
-                <li data-toggle="collapse" data-target="#cases" class="collapsed">
-                  <a href="#"><i class="fa fa-globe fa-lg"></i> Cases <span class="arrow"></span></a>
-                </li>
-                <li data-toggle="collapse" data-target="#new" class="collapsed">
-                  <a href="#"><i class="fa fa-car fa-lg"></i> Tasks <span class="arrow"></span></a>
+                <li>
+                  <a routerLink="/cases"><i class="fa fa-globe fa-lg"></i> Cases <span class="arrow"></span></a>
                 </li>
                 <li>
-                  <a href="#">
+                    <a routerLink="/tasks"><i class="fa fa-car fa-lg"></i> Tasks <span class="arrow"></span></a>
+                </li>
+                <li>
+                  <a routerLink="/calendar">
                   <i class="fa fa-user fa-lg"></i> Calendar
                   </a>
                   </li>
                 <li>
-                  <a href="#">
+                    <a routerLink="/reports">
                   <i class="fa fa-users fa-lg"></i> Reports
                   </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a routerLink="/settings">
                     <i class="fa fa-users fa-lg"></i> Settings
                     </a>
                 </li>
@@ -53,25 +54,5 @@
 </div>
 
 <div class="container">
-  <div [style.margin-top.px]="10" class="row">
-    <h3>Welcome</h3>
-    <form class="form-inline">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" #name>
-      </div>
-      <div class="form-group">
-        <label for="age">Age</label>
-        <input type="number" class="form-control" id="age" #age>
-      </div>
-      <button type="button" (click)="addPerson(name.value, age.value)" class="btn btn-primary">Add person</button>
-    </form>
-  </div>
-  <div [style.margin-top.px]="10" class="row">
-    <h3>People</h3>
-    <!-- Bootstrap Card -->
-    <div [style.margin-right.px]="10" class="card card-block col-md-3" *ngFor="let person of people">
-      <h4 class="card-title">{{person.name}}  {{person.age}}</h4>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </div>
