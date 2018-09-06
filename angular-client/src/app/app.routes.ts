@@ -6,11 +6,17 @@ import { ReportsComponent } from './components/reports/reports.component';
 import { HomeComponent } from './components/home/home.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   },
   {
     path: 'tasks',
@@ -27,11 +33,14 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent
-  }
-  ,
+  },
   {
-    path: 'reports',
+    path: 'calendar',
     component: CalendarComponent
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
