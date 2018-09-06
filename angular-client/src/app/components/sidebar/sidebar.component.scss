@@ -1,3 +1,11 @@
+@import 'src/assets/sass/variables';
+
 li a:hover {
-    background-color: #ffffff;
+    background-color: $navbarColor;
+    color: white;
+}
+
+.active-link {
+    background-color: $navbarColor;
+    color: white;
 }
