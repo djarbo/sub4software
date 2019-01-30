@@ -2,12 +2,20 @@ version: '2'
 
 services:
   frontend:
-    build: angular-client
+      build: ./angular-client
+      # This line maps the contents of the client folder into the container.
+      volumes:
+        - ./angular-client:/usr/src/app
+ 
+  # Build the container using the nginx Dockerfile
+  nginx:
+    build: ./nginx   
+    # Map Nginx port 80 to the local machine's port 80
     ports:
-      - '4200:4200'
-    volumes:
-      - frontend_node_modules:/usr/src/app/node_modules
-      - ./angular-client:/usr/src/app
+      - "80:80"
+    # Link the client container so that Nginx will have access to it
+    links:
+      - frontend
   
   backend:
     build: express-server
@@ -16,7 +24,6 @@ services:
     links:
         - database
     volumes:
-      - backend_node_modules:/usr/src/app/node_modules
       - ./express-server:/usr/src/app
   
   database:
@@ -27,6 +34,4 @@ services:
       - db-data:/data/db
 
 volumes:
-  frontend_node_modules:
-  backend_node_modules:
   db-data:

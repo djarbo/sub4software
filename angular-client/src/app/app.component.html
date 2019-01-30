@@ -1,55 +1,55 @@
 <script js>
-    $(document).ready(function() {
-    
-        $('[data-toggle=offcanvas]').click(function() {
-          $('.row-offcanvas').toggleClass('active');
-        });
-    });
+  $(document).ready(function() {
+  
+      $('[data-toggle=offcanvas]').click(function() {
+        $('.row-offcanvas').toggleClass('active');
+      });
+  });
 </script>
 
 <app-navbar></app-navbar>
 <div class="container-fluid" id="main">
-    <div class="row row-offcanvas row-offcanvas-left">
-        <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
-            <app-sidebar></app-sidebar>
-        </div>
-        <!--/col-->
+  <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
+          <app-sidebar></app-sidebar>
+      </div>
+      <!--/col-->
 
-        <div class="col main pt-5 mt-3">
-            <router-outlet></router-outlet>
-        </div>
-        <!--/main col-->
-    </div>
+      <div class="col main pt-5 mt-3">
+          <router-outlet></router-outlet>
+      </div>
+      <!--/main col-->
+  </div>
 
 </div>
 <!--/.container-->
 <footer class="container-fluid">
-    <p class="text-right small">©2016-2018 FiDoo</p>
+  <p class="text-right small">©2016-2018 FiDoo</p>
 </footer>
 
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Modal</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                    <span class="sr-only">Close</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>This is a dashboard layout for Bootstrap 4. This is an example of the Modal component which you can use to show content.
-                Any content can be placed inside the modal and it can use the Bootstrap grid classes.</p>
-                <p>
-                    <a href="https://www.codeply.com/go/KrUO8QpyXP" target="_ext">Grab the code at Codeply</a>
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary-outline" data-dismiss="modal">OK</button>
-            </div>
-        </div>
-    </div>
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Modal</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                  <span class="sr-only">Close</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <p>This is a dashboard layout for Bootstrap 4. This is an example of the Modal component which you can use to show content.
+              Any content can be placed inside the modal and it can use the Bootstrap grid classes.</p>
+              <p>
+                  <a href="https://www.codeply.com/go/KrUO8QpyXP" target="_ext">Grab the code at Codeply</a>
+              </p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary-outline" data-dismiss="modal">OK</button>
+          </div>
+      </div>
+  </div>
 </div>
