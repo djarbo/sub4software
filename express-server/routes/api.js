@@ -1,23 +1,24 @@
 // Import dependencies
-const mongoose = require('mongoose');
+const mysql = require('mysql');
 const express = require('express');
 const router = express.Router();
 
 // MongoDB URL from the docker-compose file
-const dbHost = 'mongodb://database/sub4software';
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'user',
+    password: 'pass',
+    database: 'my_db',
+})
 
 // Connect to mongodb
-mongoose.connect(dbHost);
+connection.connect();
 
-// create mongoose schema
-const userSchema = new mongoose.Schema({
-  name: String,
-  age: Number
+connection.query('SELECT * FROM users', function (err, rows, fields) {
+    if (err) throw err
+
+    console.log('First user is: ', rows[0].first)
 });
-
-// create mongoose model
-const User = mongoose.model('User', userSchema);
-
 
 /* GET api listing. */
 router.get('/', (req, res) => {
@@ -31,7 +32,7 @@ router.get('/users', (req, res) => {
 
         res.status(200).json(users);
     });
-});
+});  
 
 /* GET one users. */
 router.get('/users/:id', (req, res) => {
