@@ -1,5 +1,9 @@
 @import 'src/assets/sass/variables';
 
+a {
+    color: inherit;
+}
+
 li a:hover {
     background-color: $navbarColor;
     color: white;
