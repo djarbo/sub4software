@@ -6,6 +6,7 @@ services:
       # This line maps the contents of the client folder into the container.
       volumes:
         - ./angular-client:/usr/src/app
+        - angular-node-modules:/usr/src/app/node_modules
  
   # Build the container using the nginx Dockerfile
   nginx:
@@ -16,22 +17,5 @@ services:
     # Link the client container so that Nginx will have access to it
     links:
       - frontend
-  
-  backend:
-    build: express-server
-    ports:
-      - '3000:3000'
-    links:
-        - database
-    volumes:
-      - ./express-server:/usr/src/app
-  
-  database:
-    image: mongo
-    ports:
-      - '27017:27017'
-    volumes:
-      - db-data:/data/db
-
 volumes:
-  db-data:
+  angular-node-modules:
