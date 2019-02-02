@@ -2,11 +2,11 @@ version: '2'
 
 services:
   frontend:
-      build: ./angular-client
-      # This line maps the contents of the client folder into the container.
-      volumes:
-        - ./angular-client:/usr/src/app
-        - angular-node-modules:/usr/src/app/node_modules
+    build: ./angular-client
+    # This line maps the contents of the client folder into the container.
+    volumes:
+      - ./angular-client:/usr/src/app
+      - angular-node-modules:/usr/src/app/node_modules
  
   # Build the container using the nginx Dockerfile
   nginx:
